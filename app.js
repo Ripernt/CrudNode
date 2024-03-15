@@ -36,7 +36,15 @@ app.post('/agregarCarro',(req,res)=>{
 });
 
 //Delete
-
+app.post('/borrarCarro', (req,res)=>{
+    let dcarro = req.body.DCarro;
+    console.log(dcarro)
+    con.query('DELETE FROM carros WHERE id = "'+dcarro+'"', (err, respuesta, fields)=>{
+        if(err)return console.log('ERROR: ', err);
+        return res.send('<h1>Se ha borrado el carro con el id: </h1>+"'+dcarro+'"');
+    });
+    
+});
 //Update
 //fun consultar
 
@@ -53,10 +61,9 @@ app.get('/obtenerCarro',(req,res)=>{
             carrosHTML+= `  <tr>
                             <td>${i}</td>
                             <td>${carros.nombre_coche}</td>
-                            <td>${i}</td>
                             <td>${carros.modelo_coche}</td>
-                            <td>${i}</td
-                            td>${carros.precio_coche}</td>
+                            <td>${carros.precio_coche}</td>  
+                            <td>${carros.id}</td>
                             </tr>`;
 
 
@@ -64,10 +71,11 @@ app.get('/obtenerCarro',(req,res)=>{
 
         return res.send(`<table>
                 <tr>
-                    <th>id</th>
+                    <th>Num</th>
                     <th>Nombre</th>
                     <th>Modelo</th>
                     <th>Precio</th>
+                    <th>ID</th>
                 <tr>
                 ${carrosHTML}
                 </table>`
