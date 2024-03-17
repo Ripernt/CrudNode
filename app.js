@@ -1,15 +1,24 @@
-const express = require('express');
-const mysql = require("mysql2")
+import {PORT} from './config.js'
+import {
+    DB_HOST,
+    DB_NAME,
+    DB_PASSWORD,
+    DB_USER,
+    DB_PORT
+} from './config.js'
+
+const express = require("express");
+const mysql = require("mysql2");
 
 var app = express();
 
 var bodyParser = require("body-parser");
 
 var con = mysql.createConnection({
-    host: 'roundhouse.proxy.rlwy.net',
-    user: 'root',
-    password: 'jjcKaqNrBASDSjYwlIZzJCFWqDIHxKKz',
-    database: 'railway'
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_NAME
 })
 con.connect();
 
@@ -85,8 +94,8 @@ app.get('/obtenerCarro',(req,res)=>{
     });
 });
 
-app.listen(8080,()=>{
+app.listen(PORT,()=>{
 
-    console.log('servidor escuchando en el puerto 8080');
+    console.log('servidor escuchando en el puerto ', PORT);
 
 });
