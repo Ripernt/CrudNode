@@ -35,7 +35,7 @@ app.post('/agregarCarro',(req,res)=>{
     console.log(carro)
     console.log(modelo)
     console.log(precio)
-    con.query('INSERT INTO carros(nombre_coche,modelo_coche,precio_coche) VALUES ("'+carro+'","'+modelo+'","'+precio+'")', (err, respuesta, fields)=>{
+    con.query('INSERT INTO Carros(nombre_coche,modelo_coche,precio_coche) VALUES ("'+carro+'","'+modelo+'","'+precio+'")', (err, respuesta, fields)=>{
         if(err)return console.log('ERROR: ', err);
         return res.send('<h1>Nombre del carro :</h1>+"'+carro+'"');
 
@@ -46,7 +46,7 @@ app.post('/agregarCarro',(req,res)=>{
 app.post('/borrarCarro', (req,res)=>{
     let dcarro = req.body.DCarro;
     console.log(dcarro)
-    con.query('DELETE FROM carros WHERE id = "'+dcarro+'"', (err, respuesta, fields)=>{
+    con.query('DELETE FROM Carros WHERE id = "'+dcarro+'"', (err, respuesta, fields)=>{
         if(err)return console.log('ERROR: ', err);
         return res.send('<h1>Se ha borrado el carro con el id: </h1>+"'+dcarro+'"');
     });
