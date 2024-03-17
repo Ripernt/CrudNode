@@ -1,4 +1,4 @@
-import {PORT} from './config.js';
+//import {PORT} from './config.js';
 /*import {
     DB_HOST,
     DB_NAME,
@@ -6,9 +6,13 @@ import {PORT} from './config.js';
     DB_USER,
     DB_PORT
 } from './config.js'*/
+/*
 import express from 'express'
 import mysql from 'mysql2'
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser'*/
+const express =  require('express');
+const mysql = require('mysql2');
+const bodyParser = require('body-parser');
 var app = express();
 
 var con = mysql.createConnection({
@@ -92,8 +96,8 @@ app.get('/obtenerCarro',(req,res)=>{
     });
 });
 
-app.listen(PORT,()=>{
+app.listen(3000,()=>{
 
-    console.log('servidor escuchando en el puerto ', PORT);
+    console.log('servidor escuchando en el puerto 3000');
 
 });
