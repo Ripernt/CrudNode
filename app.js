@@ -12,10 +12,10 @@ import bodyParser from 'body-parser'
 var app = express();
 
 var con = mysql.createConnection({
-    host: 'buvmysjovxerblls4fap-mysql.services.clever-cloud.com', //DB_HOST,
-    user: 'ujuxzmolakxbdlt0',  //DB_USER,
-    password: 'OXdfMT6ZJt8jZQk8jBLk', //DB_PASSWORD,
-    database: 'buvmysjovxerblls4fap', //DB_NAME,
+    host: 'buvmysjovxerblls4fap-mysql.services.clever-cloud.com', //DB_HOST, buvmysjovxerblls4fap-mysql.services.clever-cloud.com
+    user: 'ujuxzmolakxbdlt0',  //DB_USER, ujuxzmolakxbdlt0
+    password: 'OXdfMT6ZJt8jZQk8jBLk', //DB_PASSWORD, OXdfMT6ZJt8jZQk8jBLk
+    database: 'buvmysjovxerblls4fap', //DB_NAME, buvmysjovxerblls4fap
     port: '3306', //DB_PORT
 })
 con.connect();
@@ -58,7 +58,7 @@ app.post('/borrarCarro', (req,res)=>{
 
 app.get('/obtenerCarro',(req,res)=>{
     
-    con.query('select * from carros', (err,respuesta, fields)=>{
+    con.query('select * from Carros', (err,respuesta, fields)=>{
         if(err)return console.log('ERROR: ', err);
         var carrosHTML=``;
         var i=0;
@@ -76,7 +76,7 @@ app.get('/obtenerCarro',(req,res)=>{
 
         });
 
-        return res.send(`<table>
+        return res.send(`<table border=1>
                 <tr>
                     <th>Num</th>
                     <th>Nombre</th>
