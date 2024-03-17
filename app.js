@@ -1,22 +1,22 @@
 import {PORT} from './config.js';
-import {
+/*import {
     DB_HOST,
     DB_NAME,
     DB_PASSWORD,
     DB_USER,
     DB_PORT
-} from './config.js'
+} from './config.js'*/
 import express from 'express'
 import mysql from 'mysql2'
 import bodyParser from 'body-parser'
 var app = express();
 
 var con = mysql.createConnection({
-    host: DB_HOST,
-    user: DB_USER,
-    password: DB_PASSWORD,
-    database: DB_NAME,
-    port: DB_PORT
+    host: 'buvmysjovxerblls4fap-mysql.services.clever-cloud.com', //DB_HOST,
+    user: 'ujuxzmolakxbdlt0',  //DB_USER,
+    password: 'OXdfMT6ZJt8jZQk8jBLk', //DB_PASSWORD,
+    database: 'buvmysjovxerblls4fap', //DB_NAME,
+    port: '3306', //DB_PORT
 })
 con.connect();
 
