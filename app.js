@@ -10,17 +10,18 @@
 import express from 'express'
 import mysql from 'mysql2'
 import bodyParser from 'body-parser'*/
-const express =  require('express');
+require('dotenv').config();
+const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 var app = express();
 
 var con = mysql.createConnection({
-    host: 'buvmysjovxerblls4fap-mysql.services.clever-cloud.com', //DB_HOST, buvmysjovxerblls4fap-mysql.services.clever-cloud.com
-    user: 'ujuxzmolakxbdlt0',  //DB_USER, ujuxzmolakxbdlt0
-    password: 'OXdfMT6ZJt8jZQk8jBLk', //DB_PASSWORD, OXdfMT6ZJt8jZQk8jBLk
-    database: 'buvmysjovxerblls4fap', //DB_NAME, buvmysjovxerblls4fap
-    port: '3306', //DB_PORT
+    host: process.env.DB_HOST, //DB_HOST, buvmysjovxerblls4fap-mysql.services.clever-cloud.com
+    user: process.env.DB_USER,  //DB_USER, ujuxzmolakxbdlt0
+    password: process.env.DB_PASSWORD, //DB_PASSWORD, OXdfMT6ZJt8jZQk8jBLk
+    database: process.env.DB_NAME, //DB_NAME, buvmysjovxerblls4fap
+    port: process.env.DB_PORT, //DB_PORT
 })
 con.connect();
 
