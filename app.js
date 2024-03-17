@@ -6,10 +6,10 @@ var app = express();
 var bodyParser = require("body-parser");
 
 var con = mysql.createConnection({
-    host: 'localhost',
+    host: 'roundhouse.proxy.rlwy.net',
     user: 'root',
-    password: 'GAty_w42',
-    database: 'mybase'
+    password: 'jjcKaqNrBASDSjYwlIZzJCFWqDIHxKKz',
+    database: 'railway'
 })
 con.connect();
 
