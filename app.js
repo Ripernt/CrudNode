@@ -1,4 +1,4 @@
-import {PORT} from './config.js'
+import {PORT} from './config.js';
 import {
     DB_HOST,
     DB_NAME,
@@ -6,19 +6,17 @@ import {
     DB_USER,
     DB_PORT
 } from './config.js'
-
-const express = require("express");
-const mysql = require("mysql2");
-
+import express from 'express'
+import mysql from 'mysql2'
+import bodyParser from 'body-parser'
 var app = express();
-
-var bodyParser = require("body-parser");
 
 var con = mysql.createConnection({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASSWORD,
-    database: DB_NAME
+    database: DB_NAME,
+    port: DB_PORT
 })
 con.connect();
 
